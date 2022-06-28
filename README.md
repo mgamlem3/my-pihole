@@ -11,7 +11,7 @@ To learn how to configure Pihole or it's Docker image, please go read the [docs]
 3. Create a GitHub personal access token and place it in a file named `github-secret.txt` in the root of this repository.
 	- It must have `repo` permissions
 	- See GitHub's [docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for how to create a personal access token.
-4. Update `user.email` and `username` in [Dockerfile.primary]().
+4. Update `user.email` and `username` in [Dockerfile.primary](https://github.com/mgamlem3/my-pihole/blob/main/Dockerfile.primary#L5-L6).
 5. Run the `build.sh` script with a password for pihole as the first argument.
 	- `./build.sh <password> <"primary"|"replica"|blank>`
 	- The second argument can be omitted to build both `primary` and `replica` images or you may pass either version to build only one.
