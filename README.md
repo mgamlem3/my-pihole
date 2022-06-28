@@ -17,5 +17,6 @@ To learn how to configure Pihole or it's Docker image, please go read the [docs]
 	- The second argument can be omitted to build both `primary` and `replica` images or you may pass either version to build only one.
 	- (Optional) Change the name of the image tag
 6. Start the container with the `start.sh` script.
+	- `./start.sh <"primary"|"replica">`
 	- If you changed the tag name in the previous step you will need to update it in `start.sh`.
 
