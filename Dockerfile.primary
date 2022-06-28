@@ -1,0 +1,7 @@
+FROM pihole.mgamlem3.base
+
+COPY "github-secret.txt" "/secrets/"
+
+RUN git config --global user.email "mgamlem3@gmail.com"
+RUN git config --global credential.helper '!f() { printf "%s\n" "username=mgamlem3" "password=`cat /secrets/github-secret.txt`"; };f'
+RUN ./pihole-cloudsync/pihole-cloudsync --setupcronpush

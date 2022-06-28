@@ -1,0 +1,9 @@
+{
+	"editor.defaultFormatter": "foxundermoon.shell-format",
+
+	"[markdown]": {
+		"editor.unicodeHighlight.ambiguousCharacters": true,
+		"editor.unicodeHighlight.invisibleCharacters": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+	}
+}

@@ -1,0 +1,5 @@
+github-secret.txt
+secret.txt
+.DS_Store
+*.pem
+*.env
