@@ -17,6 +17,6 @@ COPY "secret.txt" "/secrets/"
 
 RUN apt-get install git
 WORKDIR /usr/local/bin
-RUN git clone https://github.com/mgamlem3/pihole-cloudsync.git
+RUN git clone https://github.com/mgamlem3/pihole-cloudsync.git -branch dev
 RUN git clone https://github.com/mgamlem3/my-pihole-lists.git
 RUN ./pihole-cloudsync/pihole-cloudsync --initpull
