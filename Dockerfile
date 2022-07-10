@@ -7,7 +7,7 @@ EXPOSE 80/tcp
 ENV TZ="America/Los_Angeles"
 ENV WEBPASSWORD_FILE="/secrets/secret.txt"
 ENV ADMIN_EMAIL="webmaster@mgamlem3.com"
-ENV DNSMASQ_LISTENING="local"
+ENV DNSMASQ_LISTENING="eth0"
 ENV PIHOLE_DNS_="1.1.1.1;1.0.0.1"
 ENV TEMPERATUREUNIT="f"
 ENV WEBTHEME="default-auto"
