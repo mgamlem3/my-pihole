@@ -4,6 +4,11 @@ EXPOSE 53/tcp
 EXPOSE 53/udp
 EXPOSE 80/tcp
 
+COPY "github-secret.txt" "/secrets/"
+
+RUN git config --global user.email "mgamlem3@gmail.com"
+RUN git config --global credential.helper '!f() { printf "%s\n" "username=mgamlem3" "password=`cat /secrets/github-secret.txt`"; };f'
+
 ENV TZ="America/Los_Angeles"
 ENV WEBPASSWORD_FILE="/secrets/secret.txt"
 ENV ADMIN_EMAIL="webmaster@mgamlem3.com"
