@@ -4,7 +4,7 @@ if [ "$1" == "" ]; then
 	echo "You must supply a password for pihole"
 	exit 1
 else
-	echo $1 >secret.txt
+	echo "$1" >secret.txt
 fi
 docker build --no-cache -t pihole.mgamlem3.base .
 if [ "$2" != "replica" ]; then
