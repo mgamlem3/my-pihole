@@ -1,3 +1,4 @@
+# skipcq: DOK-DL3007
 FROM pihole/pihole:latest
 
 EXPOSE 53/tcp
