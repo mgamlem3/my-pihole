@@ -19,7 +19,7 @@ ENV WEBTHEME="default-auto"
 
 COPY "secret.txt" "/secrets/"
 
-RUN apt-get install git
+RUN apt-get install git --no-install-recommends
 WORKDIR /usr/local/bin
 RUN git clone https://github.com/mgamlem3/pihole-cloudsync.git
 RUN git clone https://github.com/mgamlem3/my-pihole-lists.git
