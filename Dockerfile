@@ -20,6 +20,7 @@ ENV WEBTHEME="default-auto"
 
 COPY "secret.txt" "/secrets/"
 
+# skipcq: DOK-DL3008
 RUN apt-get install git --no-install-recommends
 WORKDIR /usr/local/bin
 RUN git clone https://github.com/mgamlem3/pihole-cloudsync.git \
