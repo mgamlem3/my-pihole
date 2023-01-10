@@ -6,8 +6,8 @@ EXPOSE 80/tcp
 
 COPY "github-secret.txt" "/secrets/"
 
-RUN git config --global user.email "mgamlem3@gmail.com"
-RUN git config --global credential.helper '!f() { printf "%s\n" "username=mgamlem3" "password=`cat /secrets/github-secret.txt`"; };f'
+RUN git config --global user.email "mgamlem3@gmail.com" \
+	&& git config --global credential.helper '!f() { printf "%s\n" "username=mgamlem3" "password=`cat /secrets/github-secret.txt`"; };f'
 
 ENV TZ="America/Los_Angeles"
 ENV WEBPASSWORD_FILE="/secrets/secret.txt"
@@ -21,6 +21,6 @@ COPY "secret.txt" "/secrets/"
 
 RUN apt-get install git --no-install-recommends
 WORKDIR /usr/local/bin
-RUN git clone https://github.com/mgamlem3/pihole-cloudsync.git
-RUN git clone https://github.com/mgamlem3/my-pihole-lists.git
-RUN ./pihole-cloudsync/pihole-cloudsync --initpull
+RUN git clone https://github.com/mgamlem3/pihole-cloudsync.git \
+	&& git clone https://github.com/mgamlem3/my-pihole-lists.git \
+	&& ./pihole-cloudsync/pihole-cloudsync --initpull
