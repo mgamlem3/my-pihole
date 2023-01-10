@@ -6,9 +6,9 @@ if [ "$1" == "" ]; then
 else
 	echo $1 >secret.txt
 fi
-docker build -t pihole.mgamlem3.base .
+docker build --no-cache -t pihole.mgamlem3.base .
 if [ "$2" != "replica" ]; then
-	docker build -t pihole.mgamlem3.primary -f Dockerfile.primary .
+	docker build --no-cache -t pihole.mgamlem3.primary -f Dockerfile.primary .
 fi
 if [ "$2" != "primary" ]; then
 	docker build -t pihole.mgamlem3.replica -f Dockerfile.replica .
