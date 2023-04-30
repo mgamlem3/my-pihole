@@ -1,6 +1,20 @@
 # skipcq: DOK-DL3007
 FROM pihole/pihole:latest
 
+RUN apt-get update
+RUN apt-get install -y wget
+RUN wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64
+RUN mv -f ./cloudflared-linux-arm64 /usr/local/bin/cloudflared
+RUN chmod +x /usr/local/bin/cloudflared
+RUN useradd -s /usr/sbin/nologin -r -M cloudflared
+
+COPY ./cloudflared /etc/default/
+
+RUN chown cloudflared:cloudflared /etc/default/cloudflared
+RUN chown cloudflared:cloudflared /usr/local/bin/cloudflared
+
+COPY ./cloudflared.service /etc/systemd/system
+
 EXPOSE 53/tcp
 EXPOSE 53/udp
 EXPOSE 80/tcp
@@ -14,7 +28,7 @@ ENV TZ="America/Los_Angeles"
 ENV WEBPASSWORD_FILE="/secrets/secret.txt"
 ENV ADMIN_EMAIL="webmaster@mgamlem3.com"
 ENV DNSMASQ_LISTENING="eth0"
-ENV PIHOLE_DNS_="1.1.1.1;1.0.0.1"
+ENV PIHOLE_DNS_="127.0.0.1#5053"
 ENV TEMPERATUREUNIT="f"
 ENV WEBTHEME="default-auto"
 
